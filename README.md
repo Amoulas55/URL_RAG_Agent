@@ -1,59 +1,47 @@
 # 🧠 URL RAG Agent
 
-A **Retrieval-Augmented Generation (RAG)** assistant that answers questions from any public **web URL**. It combines **semantic search** (via FAISS + SentenceTransformers) with **local LLM generation** (via Mistral-7B-Instruct), running entirely **offline**.
+A **Retrieval-Augmented Generation (RAG)** assistant that answers user questions using public URLs as context. It combines **FAISS-based semantic retrieval** with **Mistral-7B-Instruct** for high-quality, fully local answer generation.
 
 ---
 
 ## 🔧 Features
 
-* 🌐 Scrapes full article text from any URL (news, blogs, Wikipedia, etc.)
-* ✂️ Chunks and embeds using [SentenceTransformers](https://www.sbert.net/)
-* 🔍 Retrieves top-k chunks with FAISS
+* 🌐 Reads full web articles via URL (e.g. Wikipedia, news, blogs)
+* ✂️ Chunks and embeds with [SentenceTransformers](https://www.sbert.net/)
+* 🔍 Retrieves top-k relevant segments using FAISS
 * 🧠 Answers questions using [Mistral-7B-Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1)
-* ⚡️ 100% local: no API keys or external calls required
-* ✅ Dual mode: CLI for batch processing & Streamlit UI for interactive use
+* ⚡️ Runs fully **offline**, no OpenAI API needed
+* ✅ Works in **CLI batch mode** with input/output files
 
 ---
 
 ## 🚀 Quickstart
 
-### ◾️ 1. Clone the repo
+### 🔹 1. Clone the repo
 
 ```bash
 git clone https://github.com/Amoulas55/url-rag-agent.git
 cd url-rag-agent
 ```
 
-### ◾️ 2. Install dependencies
+### 🔹 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> ⚠️ Requires a GPU with \~24GB+ VRAM to run Mistral-7B smoothly.
+> ⚠️ Requires a GPU with \~24GB+ VRAM to run Mistral efficiently.
 
----
+### 🔹 3. Run in CLI Mode (Batch)
 
-## 💻 Run in CLI Mode
-
-1. Add questions to `questions.txt`
-2. Run:
+1. Add your questions to `questions.txt`
+2. Run the script:
 
 ```bash
 python main.py
 ```
 
-3. Answers will be saved to `results.txt`
-
----
-
-## 🌐 Run in Streamlit UI
-
-```bash
-streamlit run app.py
-```
-
-Then visit: [http://localhost:8501](http://localhost:8501)
+3. Results will be saved in `results.txt`
 
 ---
 
@@ -71,21 +59,19 @@ What controversies or legal issues has Nvidia faced?
 
 ## 🧠 Powered By
 
-* [Mistral-7B-Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1)
-* [SentenceTransformers](https://www.sbert.net/)
-* [FAISS](https://github.com/facebookresearch/faiss)
-* [trafilatura](https://github.com/adbar/trafilatura)
+* **Mistral-7B-Instruct** (local transformer)
+* **SentenceTransformers** (embedding model)
+* **FAISS** (semantic similarity search)
+* **trafilatura** (web article extraction)
 
 ---
 
-## 📆 License
+## 🪪 License
 
-**MIT License**
-Free to use, modify, and share. Attribution appreciated!
+**MIT License** — Free to use, modify, and distribute. Attribution appreciated.
 
 ---
 
-## 📩 Author
+## 📬 Author
 
-**Angelos Moulas**
-GitHub: [github.com/Amoulas55](https://github.com/Amoulas55)
+**Angelos Moulas** — [github.com/Amoulas55](https://github.com/Amoulas55)
